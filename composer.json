@@ -1,0 +1,54 @@
+{
+    "name": "tobento/service-cache",
+    "type": "library",
+    "description": "Providing PSR-6 and PSR-16 caches for PHP applications.",
+    "keywords": [
+        "tobento",
+        "package",
+        "PHP",
+        "cache",
+        "PSR-6",
+        "PSR-16"
+    ],
+    "homepage": "https://www.tobento.ch",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Strub",
+            "email": "info@tobento.ch",
+            "homepage": "https://www.tobento.ch"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.0",
+        "tobento/service-clock": "^1.0",
+        "tobento/service-iterable": "^1.0",
+        "psr/cache": "^2.0|^3.0",
+        "psr/simple-cache": "2 - 3",
+        "psr/clock": "^1.0"
+    },  
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "vimeo/psalm": "^4.0",
+        "tobento/service-file-storage": "^1.0.1",
+        "tobento/service-storage": "^1.2.3",
+        "tobento/service-filesystem": "^1.0",
+        "nyholm/psr7": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tobento\\Service\\Cache\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tobento\\Service\\Cache\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit --testdox --colors=always",
+        "psalm": "vendor/bin/psalm"
+    }
+}
