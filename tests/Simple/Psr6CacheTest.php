@@ -335,7 +335,7 @@ class Psr6CacheTest extends TestCase
         $this->assertFalse($cache->has('bar'));
     }
     
-    public function AtestDeleteExpiredItemsWithNeverExpiringItem()
+    public function testDeleteExpiredItemsWithNeverExpiringItem()
     {
         $tables = new Tables();
         $tables->add('cache_items', ['id', 'data', 'expiration', 'namespace'], 'id');
