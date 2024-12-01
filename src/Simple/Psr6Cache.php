@@ -245,7 +245,7 @@ final class Psr6Cache implements CacheInterface, CanDeleteExpiredItems
             return $this->pool->deleteExpiredItems();
         }
         
-        return false;
+        return true;
     }
     
     /**
