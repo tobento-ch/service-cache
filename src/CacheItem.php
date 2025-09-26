@@ -28,7 +28,7 @@ class CacheItem implements CacheItemInterface
     /**
      * Create a new CacheItemPool.
      *
-     * @param string $name
+     * @param string $key
      * @param mixed $value The item value (unserialized)
      * @param ClockInterface $clock
      * @param null|DateTimeInterface $expiration
