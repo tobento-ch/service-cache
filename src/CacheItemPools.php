@@ -72,15 +72,15 @@ class CacheItemPools implements CacheItemPoolsInterface
             throw new ServiceCacheException(sprintf('Pool %s not found!', $name));
         }
         
-        if (! $this->pools[$name] instanceof CacheItemPoolInterface) {
-            try {
-                $this->pools[$name] = $this->createPool($name, $this->pools[$name]);
-            } catch(Throwable $e) {
-                throw new ServiceCacheException($e->getMessage(), 0, $e);
-            }
+        if ($this->pools[$name] instanceof CacheItemPoolInterface) {
+            return $this->pools[$name];
         }
         
-        return $this->pools[$name];
+        try {
+            return $this->pools[$name] = $this->createPool($name, $this->pools[$name]);
+        } catch(Throwable $e) {
+            throw new ServiceCacheException($e->getMessage(), 0, $e);
+        }
     }
     
     /**

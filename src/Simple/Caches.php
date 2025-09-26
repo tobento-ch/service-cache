@@ -72,15 +72,15 @@ class Caches implements CachesInterface
             throw new ServiceCacheException(sprintf('Cache %s not found!', $name));
         }
         
-        if (! $this->caches[$name] instanceof CacheInterface) {
-            try {
-                $this->caches[$name] = $this->createCache($name, $this->caches[$name]);
-            } catch(Throwable $e) {
-                throw new ServiceCacheException($e->getMessage(), 0, $e);
-            }
+        if ($this->caches[$name] instanceof CacheInterface) {
+            return $this->caches[$name];
         }
         
-        return $this->caches[$name];
+        try {
+            return $this->caches[$name] = $this->createCache($name, $this->caches[$name]);
+        } catch(Throwable $e) {
+            throw new ServiceCacheException($e->getMessage(), 0, $e);
+        }
     }
     
     /**
